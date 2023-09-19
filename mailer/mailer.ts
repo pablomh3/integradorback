@@ -16,7 +16,7 @@ export const sendEmail =async (to:string, code: string ):Promise<void> => {
             from: '"Game Over Tienda Oficial" tiendagameoverarg@gmail.com',
             to,
             subject: "Código de recuperación de contraseña",
-            text: `Ingresa el siguiente código: ${code} en la web y escribe tu nueva contraseña. Tendrás que vovler a loguearte a continuación.
+            text: `Ingresa el siguiente código: ${code} en la web y escribe tu nueva contraseña. Tendrás que volver a loguearte a continuación.
                 
             Si no pediste este código, solo ignora el mail.
             `
