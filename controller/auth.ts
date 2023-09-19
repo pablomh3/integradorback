@@ -117,7 +117,7 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
         })
 
     } catch (error) {
-        console.log(error)
+        console.log("cagaste")
         res.status(500).json({
             msg: "error en el servidor"
         })
