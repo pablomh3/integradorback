@@ -86,7 +86,7 @@ export const sendMail = async (req: Request, res: Response) : Promise <void> =>{
             msg: "Error en el servidor"
         })
     
-}}
+}};
 
 
 export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
@@ -115,10 +115,12 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
         res.json ({
             user, token
         })
+
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             msg: "error en el servidor"
         })
-        console.log(error)
+        
     }
 }
