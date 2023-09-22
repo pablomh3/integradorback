@@ -27,6 +27,7 @@ export class Server {
     middlewares () : void{
         this.app.use(cors({
             origin: "https://integrador-react-peach.vercel.app",
+            allowedHeaders: ['Content-Type', 'x-token'],
         }));
         this.app.use(express.json())
     }
