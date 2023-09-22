@@ -4,10 +4,6 @@ import { connectDB } from '../database/config';
 import authRoutes from "../routes/auth"
 import  ordersRoutes  from "../routes/orders"
 
-const corsOptions = {
-    origin: 'https://integrador-react-peach.vercel.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  }; 
 export class Server {
     app: Express;
     port: string | number | undefined;
@@ -29,7 +25,9 @@ export class Server {
         await connectDB()  
     }
     middlewares () : void{
-        this.app.use(cors(corsOptions));
+        this.app.use(cors({
+            origin: "https://integrador-react-peach.vercel.app",
+        }));
         this.app.use(express.json())
     }
 

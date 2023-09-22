@@ -116,6 +116,7 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
             user, token
 
         })
+        console.log(user, token)
 
     } catch (error) {
         console.log("fuiste")

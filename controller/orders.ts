@@ -31,6 +31,8 @@ export const createOrder =async (req: Request, res: Response) : Promise <void> =
     res.status(201).json({
         order
     })
+
+    console.log (order)
 }
 
 // {   "price": 200,
