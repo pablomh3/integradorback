@@ -111,12 +111,13 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
         }
         
         const token = await generateJWT(user.id)
-        
+        console.log (token)
+
         res.json ({
             user, token
 
         })
-        console.log(user, token)
+
 
     } catch (error) {
         console.log("fuiste")
