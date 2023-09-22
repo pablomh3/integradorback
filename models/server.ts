@@ -27,14 +27,7 @@ export class Server {
     }
     
     middlewares(): void {
-        this.app.use(
-            cors({
-                origin: 'https://integrador-react-peach.vercel.app',
-                methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-                allowedHeaders: ['Content-Type', 'x-token'],
-                optionsSuccessStatus: 204,
-            })
-        );
+        this.app.use(cors());
 
         this.app.use(express.json());
     }
