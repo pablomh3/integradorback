@@ -6,6 +6,7 @@ export const collectErrors  = (req: Request, res: Response, next: NextFunction) 
 
     if (!errores.isEmpty ()){
         res.status(400).json(errores)
+        alert(errores)
     }else{
         next()
     }
