@@ -7,39 +7,46 @@ import  ordersRoutes  from "../routes/orders"
 export class Server {
     app: Express;
     port: string | number | undefined;
-    authPath: string 
-    ordersPath: string 
+    authPath: string;
+    ordersPath: string;
 
-    constructor (){
-        this.app = express ()
-        this.port = process.env.PORT
-        this.authPath = "/auth"
-        this.ordersPath = "/orders"
-        this.conectarDB ()
+    constructor() {
+        this.app = express();
+        this.port = process.env.PORT;
+        this.authPath = '/auth';
+        this.ordersPath = '/orders';
+        this.conectarDB();
 
-        this.middlewares()
+        this.middlewares();
 
-        this.routes()
-    }
-    async conectarDB () : Promise <void> {
-        await connectDB()  
-    }
-    middlewares () : void{
-        this.app.use(cors({
-            origin: "https://integrador-react-peach.vercel.app",
-            allowedHeaders: ['Content-Type', 'x-token'],
-        }));
-        this.app.use(express.json())
-    }
-
-    routes () : void {
-        this.app.use( this.authPath, authRoutes)
-        this.app.use (this.ordersPath, ordersRoutes)
+        this.routes();
     }
     
-    listen (): void { 
-            this.app.listen(this.port, () => {
-            console.log(`servidor corriendo en el puerto ${this.port}`)
-        })
+    async conectarDB(): Promise<void> {
+        await connectDB();
+    }
+    
+    middlewares(): void {
+        // Configura CORS para incluir los encabezados adecuados.
+        this.app.use(
+            cors({
+                origin: 'https://integrador-react-peach.vercel.app',
+                methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+                allowedHeaders: ['Content-Type', 'x-token'],
+            })
+        );
+
+        this.app.use(express.json());
+    }
+
+    routes(): void {
+        this.app.use(this.authPath, authRoutes);
+        this.app.use(this.ordersPath, ordersRoutes);
+    }
+
+    listen(): void {
+        this.app.listen(this.port, () => {
+            console.log(`Servidor corriendo en el puerto ${this.port}`);
+        });
     }
 }
