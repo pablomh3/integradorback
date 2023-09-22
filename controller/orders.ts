@@ -24,7 +24,9 @@ export const createOrder =async (req: Request, res: Response) : Promise <void> =
         createdAt: new Date(),
         status: "pending",
     }
-
+    
+    console.log(data);
+    
     const order = new Order (data); 
     
     await order.save()
@@ -32,7 +34,7 @@ export const createOrder =async (req: Request, res: Response) : Promise <void> =
         order
     })
 
-    console.log (order)
+  
 }
 
 // {   "price": 200,
