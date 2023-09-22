@@ -27,12 +27,12 @@ export class Server {
     }
     
     middlewares(): void {
-        // Configura CORS para incluir los encabezados adecuados.
         this.app.use(
             cors({
                 origin: 'https://integrador-react-peach.vercel.app',
                 methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
                 allowedHeaders: ['Content-Type', 'x-token'],
+                optionsSuccessStatus: 204,
             })
         );
 
