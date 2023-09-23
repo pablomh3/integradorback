@@ -8,7 +8,6 @@ interface IShippingDetails {
 }
 
 interface IItem {
-    desc: string,
     id: number,
     img: string,
     price: number,
