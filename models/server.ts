@@ -30,9 +30,10 @@ export class Server {
         this.app.use((req, res, next) => {
             res.setHeader('Access-Control-Allow-Origin', 'https://integrador-react-peach.vercel.app');
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-token'); // Agrega x-token aquí
             next();
-          });
+        });
+        
 
         this.app.use(express.json());
     }
