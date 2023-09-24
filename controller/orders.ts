@@ -16,6 +16,7 @@ export const getOrders = async (req: Request, res: Response) : Promise <void> =>
 
 export const createOrder =async (req: Request, res: Response) : Promise <void> => {
     const userID : ObjectId = req.body.userConfirmed._id;
+    console.log(userID)
     const orderData : IOrder = req.body;
 
     const data ={
@@ -30,7 +31,7 @@ export const createOrder =async (req: Request, res: Response) : Promise <void> =
     const order = new Order (data); 
     
     await order.save()
-    
+
     res.status(201).json({
         order
     })
