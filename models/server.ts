@@ -33,7 +33,7 @@ export class Server {
             res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-token');
             next();
         });
-        
+        this.app.use(cors())
 
         this.app.use(express.json());
     }
