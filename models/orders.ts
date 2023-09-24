@@ -1,18 +1,18 @@
 import { Model, Schema, Types, model } from "mongoose"
 
 interface IShippingDetails {
-    name: string, 
+    address: string,
     cellphone: number, 
     location: string, 
-    address: string,
+    name: string,
 }
 
 interface IItem {
     id: number,
     img: string,
+    name: string,
     price: number,
     quantity: number,
-    title: string,
 }
 
 export interface IOrder {
