@@ -8,3 +8,12 @@ export const emailExist =async (email: string) : Promise <void> => {
     }
 
 }
+
+export const emailNotExist =async (email: string) : Promise <void> => {
+    const emailInDB : IUser | null = await Usuario.findOne({email })
+
+    if (!emailInDB){
+        throw new Error (`el mail ${email} no está registrado`)
+    }
+
+}
