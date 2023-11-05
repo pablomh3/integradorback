@@ -95,7 +95,7 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
     try {
         const user = await Usuario.findOne({ email })
         if(!user){
-            res.status(400).json({
+            res.status(401).json({
                 msg: "no se encontró el usuario en la base de datos"
             });
             return
@@ -104,7 +104,7 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
         const validatePassword = bcryptjs.compareSync(password, user.password)
 
         if(!validatePassword){
-            res.status(400).json({
+            res.status(401).json({
                 msg: "la contraseña es incorrecta"
             })
             return
