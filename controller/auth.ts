@@ -104,9 +104,11 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
         const validatePassword = bcryptjs.compareSync(password, user.password)
 
         if(!validatePassword){
-            res.status(401).json({
+            res.status(400).json({
                 msg: "la contraseña es incorrecta"
-            })
+            });
+
+            throw new Error ("la contraseña es incorrecta")
             return
         }
         
