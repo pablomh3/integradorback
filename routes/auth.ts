@@ -17,9 +17,6 @@ router.post("/register", [
 ], register)
 
 router.post("/login", [
-    check ("email", "faltó el email").isEmail(),
-    check ("password", "la contraseña debe contener al menos 6 carácteres").isLength({ min: 6 }),
-    check("email").custom(emailNotExist),
     collectErrors
 ], logIn)
 

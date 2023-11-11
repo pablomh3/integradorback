@@ -108,8 +108,8 @@ export const logIn = async (req: Request, res: Response ) : Promise <void> =>{
                 msg: "la contraseña es incorrecta"
             });
 
-            throw new Error ("la contraseña es incorrecta")
-            return
+            
+            
         }
         
         const token = await generateJWT(user.id)
