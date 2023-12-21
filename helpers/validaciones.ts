@@ -1,5 +1,5 @@
 import Usuario, { IUser } from "../models/users";
-import bcryptjs from "bcryptjs";
+
 
 export const emailExist =async (email: string) : Promise <void> => {
     const emailInDB : IUser | null = await Usuario.findOne({email })
