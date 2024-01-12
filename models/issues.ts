@@ -26,6 +26,11 @@ const issueSchema = new Schema <Iissue> ({
     }
 })
 
+issueSchema.methods.toJSON = function () {
+    const { __v, _id, ...issue} = this.toObject ();
+    return issue;
+}
+
 const Issue: Model <Iissue> = model <Iissue> ("Issue", issueSchema)
 
-export default Issue
+export default Issue 
