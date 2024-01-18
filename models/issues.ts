@@ -4,7 +4,7 @@ export interface Iissue {
     name: string;
     surname: string;
     email: string;
-    phone: number;
+    cellphone: number;
     message: string;
 }
 
@@ -21,7 +21,7 @@ const issueSchema = new Schema <Iissue> ({
         type: String,
         required: [true, "te faltó el email"]
     },
-    phone: {
+    cellphone: {
         type: Number,
         required: [true, "te faltó el celular"]
     },
