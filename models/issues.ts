@@ -2,6 +2,7 @@ import { Model, Schema, model } from 'mongoose';
 
 export interface Iissue {
     name: string;
+    surname: string;
     email: string;
     phone: number;
     message: string;
@@ -11,6 +12,10 @@ const issueSchema = new Schema <Iissue> ({
     name: {
         type: String,
         required: [true, "te faltó el nombre"]
+    },
+    surname: {
+        type: String,
+        required: [true, "te faltó el apellido"]
     },
     email: {
         type: String,
